@@ -115,8 +115,6 @@ Cuando seleccionamos un archivo que deseamos nos confirmara que el archivo se pu
 
 Cuando queremos buscar un archivo principalmente para saber en cuales datanodes se ubica usaremos la opcion 3 y al seleccionarlo nos despliega el menu donde no pedira el nombre del archivo y si lo encuentra nos devolvera en cuales datanodes se ubica (Minimo 2)
 
-![search1](https://github.com/sebastianvelezg/st0263-P1-DFS/blob/main/assets/search1.jpg)
-
 
 ### List files
 
