@@ -1,0 +1,64 @@
+syntax = "proto3";
+
+package files;
+
+service dfs {
+    rpc PingFiles(EmptyMessage) returns (PingFilesResponse);
+    rpc ListFiles(EmptyMessage) returns (ListFilesResponse);
+    rpc DownloadFile(DownloadFileRequest) returns (stream DownloadFileResponse);
+    rpc UploadFile(stream UploadFileRequest) returns (EmptyMessage);
+    rpc NameNodeConnection(NameNodeRequest) returns (StatusMessage);
+    rpc NameNodeDownload(DownloadFileRequest) returns (DataNodeResponse);
+    rpc NameNodeUpload(EmptyMessage) returns (DataNodeResponse);
+    rpc FindFile(FindFileRequest) returns (FindFileResponse);
+}
+
+message EmptyMessage{}
+
+message StatusMessage{
+    int32 status = 1;
+}
+
+message PingFilesResponse{
+    string ack = 1;
+}
+
+message ListFilesResponse{
+    repeated string files = 1;
+    int32 status = 2;
+}
+
+message FindFileRequest {
+    string fileName = 1;
+}
+
+message FindFileResponse {
+    repeated string nodeAddresses = 1;
+    int32 status = 2;
+}
+
+message DownloadFileRequest{
+    string fileName = 1;
+}
+
+message DownloadFileResponse{
+    bytes chunk_data = 1;
+}
+
+message UploadFileRequest{
+    oneof request {
+        string fileName = 1;
+        bytes chunk_data = 2;
+    }
+}
+
+message NameNodeRequest {
+    string conn = 1;
+    repeated string files = 2;
+}
+
+message DataNodeResponse {
+    repeated string conns = 1;
+    int32 status = 2;
+}
+
