@@ -93,23 +93,20 @@ Cuando levantamos el programa correctamente podemos seleccionar alguna de estas 
 ### Download a file
 Si seleccionamos la primera opcion que es para descargar un archivo recibiremos la siguente interaccion
 
-![downloadFile1](https://github.com/sebastianvelezg/st0263-P1-DFS/blob/main/assets/download1.jpg)
 
 
 Tendremos un listado de los archivos disponibles en los datanodes y mediante el numero podemos descargar el que deseemos y este quedara grabado en la carpeta /download dentro de la carpeta del CLI y nos confirmara la interfaz que el archivo se descargo satisfactorio y en cual datanode fue el origen
 
-![downloadFile2](https://github.com/sebastianvelezg/st0263-P1-DFS/blob/main/assets/download2.jpg)
 
 
 ### Upload a file
 
 Cuando queremos montar un archivo de manera distribuida a los datanodes seleccionaremos la opcion 2 que nos despliega el siguente menu 
 
-![upload1](https://github.com/sebastianvelezg/st0263-P1-DFS/blob/main/assets/upload1.jpg)
+
 
 Que nos listara los archivos disponibles para montar que se encuentran en la carpeta /files dentro de la carpeta CLI
 
-![upload2](https://github.com/sebastianvelezg/st0263-P1-DFS/blob/main/assets/upload2.jpg)
 
 
 Cuando seleccionamos un archivo que deseamos nos confirmara que el archivo se pudo cargar y en la terminal de los data nodes podemos saber donde se montaron, se montara el archivo de manera distribuida a 2 datanodes pero no 2 veces a uno mismo 
