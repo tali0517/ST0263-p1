@@ -1,0 +1,85 @@
+syntax = "proto3";
+
+package files;
+
+service dfs {
+    rpc PingFiles(EmptyMessage) returns (PingFilesResponse);
+    rpc ListFiles(EmptyMessage) returns (ListFilesResponse);
+    rpc DownloadFile(DownloadFileRequest) returns (stream DownloadFileResponse);
+    rpc UploadFile(stream UploadFileRequest) returns (EmptyMessage);
+    rpc UploadBlock(UploadBlockRequest) returns (UploadBlockResponse); // NUEVO: RPC para subir bloques
+    rpc NameNodeConnection(NameNodeRequest) returns (StatusMessage);
+    rpc NameNodeDownload(DownloadFileRequest) returns (BlockLocationsResponse);
+    rpc NameNodeUpload(EmptyMessage) returns (DataNodeResponse);
+    rpc FindFile(FindFileRequest) returns (FindFileResponse);
+}
+
+message EmptyMessage {}
+
+message StatusMessage {
+    int32 status = 1;
+}
+
+message PingFilesResponse {
+    string ack = 1;
+}
+
+message ListFilesResponse {
+    repeated string files = 1;
+    int32 status = 2;
+}
+
+message FindFileRequest {
+    string fileName = 1;
+}
+
+message FindFileResponse {
+    repeated string nodeAddresses = 1;
+    int32 status = 2;
+}
+
+message DownloadFileRequest {
+    string fileName = 1;
+}
+
+message DownloadFileResponse {
+    bytes chunk_data = 1;
+}
+
+message UploadFileRequest {
+    oneof request {
+        string fileName = 1;
+        bytes chunk_data = 2;
+    }
+}
+
+message UploadBlockRequest {  // NUEVO: Mensaje para enviar un bloque
+    string fileName = 1;      // Nombre del archivo
+    string blockName = 2;     // Nombre del bloque
+    bytes chunk_data = 3;     // Datos del bloque
+    bool is_leader = 4;       // Indica si este nodo es el líder para este bloque
+}
+
+message UploadBlockResponse { // NUEVO: Respuesta para la subida de bloques
+    int32 status = 1;         // Estado del bloque subido (200: OK, otros: error)
+}
+
+message NameNodeRequest {
+    string conn = 1;
+    repeated string files = 2;
+}
+
+message BlockLocation {
+    string blockName = 1;
+    string datanode = 2;
+}
+
+message BlockLocationsResponse {
+    repeated BlockLocation blockLocations = 1;
+    int32 status = 2;
+}
+
+message DataNodeResponse {
+    repeated string conns = 1;
+    int32 status = 2;
+}
