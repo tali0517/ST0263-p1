@@ -10,20 +10,6 @@
 ## Introduction
 Este proyecto implementa una versión básica de un sistema de archivos distribuido (DFS) usando gRPC en Python. El sistema está diseñado para almacenar archivos en múltiples nodos de datos mientras administra los metadatos de los archivos a través de un solo nameNode. Permite a los usuarios cargar, descargar, buscar y listar archivos dentro del sistema distribuido.
 
-## Tabla de contenidos
-- [Distributed File System (DFS)](#distributed-file-system-dfs)
-  - [Introduction](#introduction)
-  - [Tabla de contenidos](#table-of-contents)
-  - [Instalacion](#installation)
-  - [Como se usa?](#usage)
-    - [Inicializar el Name Node](#starting-the-name-node)
-    - [Inicializacion de los Data Nodes](#starting-data-nodes)
-    - [Usando el CLI](#using-the-cli)
-  - [Opciones del programa](#features)
-  - [Ejemplo practico](#examples)
-  - [Arquitectura de referencia](#architecture)
-  - [Integrantes](#contributors)
-  
 
 ## Instalacion
 Para configurar el sistema de archivos distribuido, siga estos pasos:
@@ -106,13 +92,9 @@ Tendremos un listado de los archivos disponibles en los datanodes y mediante el 
 
 ### Upload a file
 
-Cuando queremos montar un archivo de manera distribuida a los datanodes seleccionaremos la opcion 2 que nos despliega el siguente menu 
+Cuando queremos montar un archivo de manera distribuida a los datanodes seleccionaremos la opcion 2 del menu
 
-
-
-Que nos listara los archivos disponibles para montar que se encuentran en la carpeta /files dentro de la carpeta CLI
-
-
+Que nos listara los archivos disponibles para montar que se encuentran en la carpeta /files dentro de la carpeta CLI.
 
 Cuando seleccionamos un archivo que deseamos nos confirmara que el archivo se pudo cargar y en la terminal de los data nodes podemos saber donde se montaron, se montara el archivo de manera distribuida a 2 datanodes pero no 2 veces a uno mismo 
 
@@ -126,7 +108,6 @@ Cuando queremos buscar un archivo principalmente para saber en cuales datanodes 
 Esta opcion es la mas simple pero igual de importante que las anteriores ya que nos va a listar todos los archivos que hemos montado anteriormente en nuestro sistema de archivos distribuidos
 
 
-Queda pendiente integracion con AWS en maquinas virtuales 
 
 
 
