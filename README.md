@@ -2,6 +2,11 @@
 
 # Distributed File System (DFS)
 
+- Simon Betancur Bedoya
+- Esteban Sierra Patiño
+- Daniel Cano Perez
+- Miguel Angel Cabrera Osorio
+
 ## Introduction
 Este proyecto implementa una versión básica de un sistema de archivos distribuido (DFS) usando gRPC en Python. El sistema está diseñado para almacenar archivos en múltiples nodos de datos mientras administra los metadatos de los archivos a través de un solo nameNode. Permite a los usuarios cargar, descargar, buscar y listar archivos dentro del sistema distribuido.
 
